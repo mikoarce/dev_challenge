@@ -1,7 +1,6 @@
 const primeController = require('./controller');
 const router = require('express').Router();
 
-router.route('/get_median_primes')
-    .get(primeController.getMedianPrimes);
+router.get('/get_median_primes', primeController.getMedianPrimes);
 
 module.exports = router;
