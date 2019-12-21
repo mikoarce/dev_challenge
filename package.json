@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server_start": "node api/index.js",
+    "server_dev": "NODE_ENV=development npm run server_start",
+    "server_test": "NODE_ENV=test mocha test/api --exit"
   },
   "repository": {
     "type": "git",
@@ -26,9 +28,10 @@
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
     "@babel/register": "^7.7.7",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-istanbul": "^5.2.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "mocha": "^6.2.2",
-    "nodemon": "^2.0.2"
+    "mocha": "^6.2.2"
   }
 }
