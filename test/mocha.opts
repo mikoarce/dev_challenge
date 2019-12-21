@@ -1,0 +1,6 @@
+--require @babel/polyfill
+--require @babel/register
+--require chai/register-should
+--reporter spec
+--timeout 15000
+--ui bdd
