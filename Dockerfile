@@ -17,6 +17,7 @@ RUN npm install
 COPY . .
 
 # Start server
+CMD npm run client_build
 CMD npm run client_dev
 EXPOSE 8080
 

@@ -95,7 +95,7 @@ const config = {
       hash: true,
       title: 'Get Prime Medians',
       template: './client/index.html',
-      filename: './index.html'
+      filename: './index.html',
     }),
     new MiniCssExtractPlugin({
       filename: `${packageFile.name}.css`,
