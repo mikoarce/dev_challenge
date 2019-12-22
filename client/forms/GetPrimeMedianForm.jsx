@@ -49,6 +49,7 @@ const GetPrimeMedianForm = ({ onSubmit, loading }) => {
         error={maxFieldError}
       />
       <Form.Button
+        primary
         content="Submit"
         disabled={max.length === 0 || !!maxFieldError || loading}
         loading={loading}
