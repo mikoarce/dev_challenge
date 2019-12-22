@@ -13,6 +13,11 @@ module.exports = function (api) {
   ];
   const plugins = [
     [
+      'module-resolver', {
+        root: ['.'],
+      },
+    ],
+    [
       'semantic-ui-react-transform-imports', {
         convertMemberImports: true,
         addCssImports: true,

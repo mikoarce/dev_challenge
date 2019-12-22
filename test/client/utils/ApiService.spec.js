@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import axios from 'axios';
 import sinon from 'sinon';
-import ApiService from '../../../client/utils/ApiService';
+import ApiService from 'client/utils/ApiService';
 
 const baseUrl = 'http://localhost:3000/api/'; // Must be in env;
 
