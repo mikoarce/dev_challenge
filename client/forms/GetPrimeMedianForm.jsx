@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Form } from 'semantic-ui-react';
 
 const numberValidator = (input) => {
@@ -17,7 +18,7 @@ const numberValidator = (input) => {
   return currVal % 1 === 0 ? noError : defaultError;
 };
 
-const GetPrimeMedianForm = () => {
+const GetPrimeMedianForm = ({ onSubmit }) => {
   const [max, setMax] = React.useState('');
   const [maxFieldError, setMaxFieldError] = React.useState(undefined);
 
@@ -31,8 +32,14 @@ const GetPrimeMedianForm = () => {
     setMax(value);
   }, []);
 
+  const onFormSubmit = React.useCallback(() => {
+    if (onSubmit) {
+      onSubmit(max);
+    }
+  }, [max, onSubmit]);
+
   return (
-    <Form>
+    <Form onSubmit={onFormSubmit}>
       <Form.Input
         label="Max Number"
         name="max"
@@ -46,6 +53,14 @@ const GetPrimeMedianForm = () => {
       />
     </Form>
   );
+};
+
+GetPrimeMedianForm.propTypes = {
+  onSubmit: PropTypes.func,
+};
+
+GetPrimeMedianForm.defaultProps = {
+  onSubmit: undefined,
 };
 
 export default React.memo(GetPrimeMedianForm);
