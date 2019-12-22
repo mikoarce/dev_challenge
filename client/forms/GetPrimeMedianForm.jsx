@@ -11,19 +11,19 @@ import { Form } from 'semantic-ui-react';
  */
 const numberValidator = (input) => {
   if (input === '') {
-    return {};
+    return undefined;
   }
 
   if (Number.isNaN(Number(input))) {
-    return { message: 'Input must be a whole number' };
+    return 'Input must be a whole number';
   }
 
   const currVal = Number(input);
   if (currVal <= 0) {
-    return { message: 'Input must be greater than 0' };
+    return 'Input must be greater than 0';
   }
 
-  return currVal % 1 === 0 ? {} : { message: 'Input must be a whole number' };
+  return currVal % 1 === 0 ? undefined : 'Input must be a whole number';
 };
 
 const GetPrimeMedianForm = ({ onSubmit, loading }) => {
@@ -31,7 +31,7 @@ const GetPrimeMedianForm = ({ onSubmit, loading }) => {
   const [maxFieldError, setMaxFieldError] = React.useState(undefined);
 
   const onMaxChange = React.useCallback((_, { value }) => {
-    const { message } = numberValidator(value);
+    const message = numberValidator(value);
     if (message) {
       setMaxFieldError({ content: message });
     } else {
