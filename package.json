@@ -6,8 +6,8 @@
   "scripts": {
     "server_start": "node api/index.js",
     "server_dev": "NODE_ENV=development npm run server_start",
-    "client_dev": "webpack-dev-server",
     "client_build": "NODE_ENV=development webpack .",
+    "client_dev": "npm run client_build && webpack-dev-server",
     "server_test": "NODE_ENV=test mocha test/api --recursive --exit",
     "client_test": "NODE_ENV=test mocha test/client --recursive --exit",
     "test": "NODE_ENV=test mocha test --recursive --exit"
