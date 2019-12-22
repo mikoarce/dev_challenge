@@ -4,6 +4,7 @@
     "node": true
   },
   "extends": "airbnb",
+  "ignorePatterns": ["node_modules/"],
   "rules": {
       "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
       "no-underscore-dangle": ["error", { "allowAfterThis": true }],
