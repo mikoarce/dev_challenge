@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const packageFile = require('./package.json');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
@@ -90,6 +91,12 @@ const config = {
   plugins: [
     new webpack.BannerPlugin(banner),
     new webpack.EnvironmentPlugin(env),
+    new HtmlWebpackPlugin({
+      hash: true,
+      title: 'Get Prime Medians',
+      template: './client/index.html',
+      filename: './index.html'
+    }),
     new MiniCssExtractPlugin({
       filename: `${packageFile.name}.css`,
     }),
