@@ -9,18 +9,22 @@ import Result from './Result';
 const api = new ApiService();
 
 const PrimeMedianView = () => {
+  const [fetchingData, setFetchingData] = React.useState(false);
   const [primes, setPrimes] = React.useState(undefined);
   const [errorMsg, setErrorMsg] = React.useState('');
   const onSubmit = React.useCallback((max) => {
+    setFetchingData(true);
     api.getMedianPrimes(max)
       .then(({ data }) => {
         const { data: primesData } = data;
         setErrorMsg('');
         setPrimes(primesData);
+        setFetchingData(false);
       }).catch((thrown) => {
         if (!ApiService.isCancel(thrown)) {
           setErrorMsg(thrown.message);
           setPrimes([]);
+          setFetchingData(false);
         }
       });
   }, []);
@@ -34,7 +38,7 @@ const PrimeMedianView = () => {
         </Header.Subheader>
       </Header>
       <Divider />
-      <GetPrimeMedianForm onSubmit={onSubmit} />
+      <GetPrimeMedianForm onSubmit={onSubmit} loading={fetchingData} />
       {!!primes ? <Result primes={primes} errorMsg={errorMsg} />
         : <Message content="Results will show up here" />}
     </Segment>

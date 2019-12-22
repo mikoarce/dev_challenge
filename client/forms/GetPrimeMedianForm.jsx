@@ -19,7 +19,7 @@ const numberValidator = (input) => {
   return currVal % 1 === 0 ? {} : { message: 'Input must be a whole number' };
 };
 
-const GetPrimeMedianForm = ({ onSubmit }) => {
+const GetPrimeMedianForm = ({ onSubmit, loading }) => {
   const [max, setMax] = React.useState('');
   const [maxFieldError, setMaxFieldError] = React.useState(undefined);
 
@@ -50,7 +50,8 @@ const GetPrimeMedianForm = ({ onSubmit }) => {
       />
       <Form.Button
         content="Submit"
-        disabled={max.length === 0 || !!maxFieldError}
+        disabled={max.length === 0 || !!maxFieldError || loading}
+        loading={loading}
       />
     </Form>
   );
@@ -58,10 +59,12 @@ const GetPrimeMedianForm = ({ onSubmit }) => {
 
 GetPrimeMedianForm.propTypes = {
   onSubmit: PropTypes.func,
+  loading: PropTypes.bool,
 };
 
 GetPrimeMedianForm.defaultProps = {
   onSubmit: undefined,
+  loading: false,
 };
 
 export default React.memo(GetPrimeMedianForm);
