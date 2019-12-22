@@ -20,6 +20,10 @@ class ApiService {
     this.handleCancel = this.handleCancel.bind(this);
   }
 
+  /**
+   * Creates a new token and cancels existing one if it exists.
+   * @returns {CancelToken|undefined} - Cancel token.
+   */
   handleCancel() {
     if (!this.allowConcurrentRequests) {
       if (this.source) {
@@ -32,6 +36,11 @@ class ApiService {
     return undefined;
   }
 
+  /**
+   * Calls the get_median_primes endpoint.
+   * @param max {number|string} - Required endpoint parameter.
+   * @returns {Promise<Promise<AxiosResponse<T>>>} - Axios response.
+   */
   async getMedianPrimes(max) {
     const cancelToken = this.handleCancel();
     return axios.get(`${baseUrl}get_median_primes`, { cancelToken, params: { max } });

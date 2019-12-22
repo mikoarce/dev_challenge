@@ -2,6 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Message } from 'semantic-ui-react';
 
+/**
+ * Helper function that determines how the Message component should look like (success vs error).
+ * @param primes {number[]} - List of prime numbers to display
+ * @param errorMsg {string|undefined} - Error message to display
+ * @returns {object} - Props passed to the Message component.
+ */
 const formMessageProps = (primes, errorMsg) => {
   if (errorMsg) {
     return {

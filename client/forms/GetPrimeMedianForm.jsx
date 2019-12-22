@@ -2,6 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'semantic-ui-react';
 
+/**
+ * Field validator logic that checks if the input:
+ * - is a whole number
+ * - is less than or equal to 0
+ * @param input {string} - Input string to verify
+ * @returns {string|undefined} - Error message, or undefined if no error is found.
+ */
 const numberValidator = (input) => {
   if (input === '') {
     return {};

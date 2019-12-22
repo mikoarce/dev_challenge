@@ -1,3 +1,8 @@
+/**
+ * Get all primes less than the given value using the Sieve of Eratosthenes algorithm.
+ * @param max {number} - Upper limit of prime numbers (non inclusive)
+ * @returns {number[]} - List of prime numbers
+ */
 const getPrimes = (max) => {
   const upperLimit = Math.sqrt(max);
   const sieve = new Array(max).fill(true);
