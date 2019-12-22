@@ -40,7 +40,7 @@ const GetPrimeMedianForm = ({ onSubmit }) => {
   }, [max, onSubmit]);
 
   return (
-    <Form onSubmit={onFormSubmit}>
+    <Form className="prime-median-form" onSubmit={onFormSubmit}>
       <Form.Input
         label="Max Number"
         name="max"
