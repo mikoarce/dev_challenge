@@ -3,19 +3,20 @@ import PropTypes from 'prop-types';
 import { Form } from 'semantic-ui-react';
 
 const numberValidator = (input) => {
-  const defaultError = { hasError: true, message: 'Input must be a whole number' };
-  const noError = { hasError: false };
-
   if (input === '') {
-    return noError;
+    return {};
   }
 
   if (Number.isNaN(Number(input))) {
-    return defaultError;
+    return { message: 'Input must be a whole number' };
   }
 
   const currVal = Number(input);
-  return currVal % 1 === 0 ? noError : defaultError;
+  if (currVal <= 0) {
+    return { message: 'Input must be greater than 0' };
+  }
+
+  return currVal % 1 === 0 ? {} : { message: 'Input must be a whole number' };
 };
 
 const GetPrimeMedianForm = ({ onSubmit }) => {
@@ -23,8 +24,8 @@ const GetPrimeMedianForm = ({ onSubmit }) => {
   const [maxFieldError, setMaxFieldError] = React.useState(undefined);
 
   const onMaxChange = React.useCallback((_, { value }) => {
-    const { hasError, message } = numberValidator(value);
-    if (hasError) {
+    const { message } = numberValidator(value);
+    if (message) {
       setMaxFieldError({ content: message });
     } else {
       setMaxFieldError(undefined);
