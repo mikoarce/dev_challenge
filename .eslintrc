@@ -15,7 +15,8 @@
         {
           "exceptAfterSingleLine": true
         }
-      ]
+      ],
+      "no-extra-boolean-cast": "off"
   },
   "settings": {
     "import/resolver": {
