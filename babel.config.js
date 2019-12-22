@@ -11,7 +11,14 @@ module.exports = function (api) {
     ],
     '@babel/preset-react',
   ];
-  const plugins = [];
+  const plugins = [
+    [
+      'semantic-ui-react-transform-imports', {
+        convertMemberImports: true,
+        addCssImports: true,
+      },
+    ],
+  ];
 
   if (process.env.NODE_ENV === 'test') {
     plugins.push(['istanbul']);
