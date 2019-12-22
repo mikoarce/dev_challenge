@@ -1,0 +1,36 @@
+body {
+  background-color: #eeeeee;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+#backdrop {
+  background-size: cover;
+  width: inherit;
+  height: inherit;
+}
+
+#main-container {
+  width: inherit;
+  height: inherit;
+}
+
+#main-container > .grid {
+  width: 100%;
+  max-width: 50rem;
+}
+
+.wrapped-header {
+  word-break: break-word;
+}
+
+.centered {
+  left: 50%;
+  margin-right: -50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

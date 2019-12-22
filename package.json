@@ -2,10 +2,12 @@
   "name": "touchbistro_dev_challenge",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "client/index.jsx",
   "scripts": {
     "server_start": "node api/index.js",
     "server_dev": "NODE_ENV=development npm run server_start",
+    "client_dev": "webpack-dev-server",
+    "client_build": "NODE_ENV=development webpack .",
     "server_test": "NODE_ENV=test mocha test/api --exit"
   },
   "repository": {
@@ -20,7 +22,10 @@
   },
   "homepage": "https://github.com/mikoarce/touchbistro_dev_challenge#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
@@ -29,9 +34,19 @@
     "@babel/preset-react": "^7.7.4",
     "@babel/register": "^7.7.7",
     "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.6",
     "babel-plugin-istanbul": "^5.2.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "mocha": "^6.2.2"
+    "css-loader": "^3.4.0",
+    "file-loader": "^5.0.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "mocha": "^6.2.2",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "style-loader": "^1.1.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
   }
 }

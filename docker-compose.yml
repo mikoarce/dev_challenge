@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  app:
+    build: .
+    image: client_touchbistro_dev_challenge
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./client:/app/client:ro
+
