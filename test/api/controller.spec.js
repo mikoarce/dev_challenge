@@ -27,6 +27,27 @@ describe('getMedianPrimes', function() {
     });
   });
 
+  it('returns an error if max is not a whole number', function(done) {
+    chai.request(app).get(`${url}?max=1.2`).end((_, res) => {
+      expect(res).to.have.status(400);
+      done();
+    });
+  });
+
+  it('returns an error if max is 0', function(done) {
+    chai.request(app).get(`${url}?max=0`).end((_, res) => {
+      expect(res).to.have.status(400);
+      done();
+    });
+  });
+
+  it('returns an error if max is a negative number', function(done) {
+    chai.request(app).get(`${url}?max=-55`).end((_, res) => {
+      expect(res).to.have.status(400);
+      done();
+    });
+  });
+
   it('returns the median when there is an odd number of primes', function(done) {
     chai.request(app).get(`${url}?max=18`).end((_, res) => {
       expect(res.body).to.deep.equal({ data: [7] });

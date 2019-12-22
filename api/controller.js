@@ -28,6 +28,13 @@ exports.getMedianPrimes = async (req, res) => {
   } else if (Number.isNaN(Number(max))) {
     res.status(400).json({ message: `'${max}' is not a number` });
   } else {
-    res.json({ data: getPrimes(Number(max)) });
+    const maxAsNum = Number(max);
+    if (maxAsNum % 1 !== 0) {
+      res.status(400).json({ message: "'max' must be an integer" });
+    } else if (maxAsNum <= 0) {
+      res.status(400).json({ message: "'max' must be greater than 0" });
+    } else {
+      res.json({ data: getPrimes(Number(max)) });
+    }
   }
 };
