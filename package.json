@@ -9,7 +9,8 @@
     "client_dev": "webpack-dev-server",
     "client_build": "NODE_ENV=development webpack .",
     "server_test": "NODE_ENV=test mocha test/api --recursive --exit",
-    "client_test": "NODE_ENV=test mocha test/client --recursive --exit"
+    "client_test": "NODE_ENV=test mocha test/client --recursive --exit",
+    "test": "NODE_ENV=test mocha test --recursive --exit"
   },
   "repository": {
     "type": "git",
