@@ -1,4 +1,4 @@
-### TouchBistro Full Stack Developer Challenge
+### Dev Challenge
 
 The project is organized into 3 main packages:
 - Backend: `/api`
